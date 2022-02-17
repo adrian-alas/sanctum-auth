@@ -21,7 +21,6 @@ class AuthController extends Controller{
             PersonalAccessToken::where('name', $request->email)->delete();
 
             return response()->json([
-                'success' => true, 
                 'token' => $request->user()->createToken($request->user()->email)->plainTextToken
             ], 200);
             
